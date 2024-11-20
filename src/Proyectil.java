@@ -1,18 +1,19 @@
 public class Proyectil {
-    double velocidadInicial;
-    double angulo;
-    double gravedad;
+    private double velocidadInicial;
+    private double angulo; // Ángulo en radianes
+    private double gravedad;
 
-    public Proyectil(){
+    // Constructor vacío
+    public Proyectil() {}
 
-    }
-
+    // Constructor con parámetros
     public Proyectil(double velocidadInicial, double angulo, double gravedad) {
         this.velocidadInicial = velocidadInicial;
         this.angulo = angulo;
         this.gravedad = gravedad;
     }
 
+    // Getters y setters
     public double getVelocidadInicial() {
         return velocidadInicial;
     }
@@ -37,26 +38,25 @@ public class Proyectil {
         this.gravedad = gravedad;
     }
 
-    public double calcularAlturaMaxima() throws ArithmeticException {
-        double anguloRad = Math.toRadians(angulo);
-        double velocidadVertical = velocidadInicial * Math.sin(anguloRad);
+    // Cálculo de la altura máxima
+    public double calcularAlturaMaxima() {
+        double velocidadVertical = velocidadInicial * Math.sin(angulo);
         if (gravedad == 0) {
             throw new ArithmeticException("La gravedad no puede ser 0.");
         }
         return (velocidadVertical * velocidadVertical) / (2 * Math.abs(gravedad));
     }
 
-    public double calcularTiempoAlturaMaxima()
-            throws ArithmeticException {
-        double anguloRad = Math.toRadians(angulo);
-        double velocidadVertical = velocidadInicial * Math.sin(anguloRad);
+    // Cálculo del tiempo en alcanzar la altura máxima
+    public double calcularTiempoAlturaMaxima() {
+        double velocidadVertical = velocidadInicial * Math.sin(angulo);
         if (gravedad == 0) {
             throw new ArithmeticException("La gravedad no puede ser 0.");
         }
         return velocidadVertical / Math.abs(gravedad);
     }
 
-
+    // Mostrar resultados
     public void mostrarResultados() {
         try {
             double alturaMaxima = calcularAlturaMaxima();
