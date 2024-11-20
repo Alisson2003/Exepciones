@@ -1,35 +1,19 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("=== Cálculo de Altura Máxima y Tiempo ===");
-
         try {
-            // Solicitar la velocidad inicial
-            System.out.print("Ingrese la velocidad inicial (m/s): ");
-            double velocidadInicial = scanner.nextDouble();
+            if (args.length < 2) {
+                throw new ArrayIndexOutOfBoundsException("Por favor, proporciona la velocidad inicial y el ángulo como argumentos.");
+            }
 
-            // Solicitar el ángulo de lanzamiento
-            System.out.print("Ingrese el ángulo de lanzamiento (grados): ");
-            double angulo = scanner.nextDouble();
+            double velocidadInicial = Conversor.convertirADouble(args[0]);
+            double anguloEnRadianes = Conversor.convertirAnguloARadianes(args[1]);
 
-            // Solicitar la gravedad (por defecto se puede usar 9.81)
-            System.out.print("Ingrese la gravedad (m/s^2, usualmente 9.81): ");
-            double gravedad = scanner.nextDouble();
-
-            // Crear un objeto de la clase Proyectil
-            Proyectil proyectil = new Proyectil(velocidadInicial, angulo, gravedad);
-
-            // Calcular y mostrar los resultados
+            Proyectil proyectil = new Proyectil(velocidadInicial, anguloEnRadianes, 9.81);
             proyectil.mostrarResultados();
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
-            // Cerrar el scanner
-            scanner.close();
+        } catch (NumberFormatException e) {
+            System.out.println("Error en la conversión de tipos de datos: " + e.getMessage());
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
