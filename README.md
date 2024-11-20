@@ -1,6 +1,7 @@
-implementacion del main:
-![image](https://github.com/user-attachments/assets/c5939e4c-2668-43c3-bede-3cb4fd7865ca)
-![image](https://github.com/user-attachments/assets/7e603c03-6ac8-467e-afa0-932748dcbca9)
-![image](https://github.com/user-attachments/assets/1c53480f-52ef-448e-8d36-121f3fcbf338)
+clase proyectil:
+![image](https://github.com/user-attachments/assets/0f6defcc-3051-4e15-b269-e8b4bbdcaad3)
+metodos:
+![image](https://github.com/user-attachments/assets/7d795065-13e3-4266-a68f-e7c7654a4a57)
+
 
 
